@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Budokai Tenkaichi -3</title>
+    </head>
+    
+    <style type="text/css">
+        #world
+        {
+            background-image: url("namek\ \(1\).jpg");
+            width: 900px;
+            height: 700px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    .player {
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+        background-image: url("goku.png");
+        background-size: contain;
+        position: absolute;
+        background-repeat: no-repeat;
+    }
+
+    .cell{
+        height: 100px;
+        width: 100px;
+        left: 800px;
+        top: 250px;
+        display: inline-block;
+        background-image: url("minicell.png");
+        background-size: contain;
+        position: absolute;
+        background-repeat: no-repeat;
+    }
+    #cuadroDeVidaGoku{
+        height: 60px;
+        width: 250px;
+        display: inline-block;
+        background-image: url("cuadrovidagoku.png");
+        background-size: contain;
+        position: absolute;
+        left: 9px;
+        top: 8px;
+        background-repeat: no-repeat;
+    }
+    #barraDeVidaGoku{
+        height: 31px;
+        width: 250px;
+        display: inline-block;
+        background-image: url("barravidagoku\ \(2\).png");
+        background-size: contain;
+        position: absolute;
+        left: 24px;
+        top: 6px;
+        background-repeat: no-repeat;
+    }
+    #cuadroDeVidaCell{
+        height: 60px;
+        width: 250px;
+        display: inline-block;
+        background-image: url("cuadrovidaminicell\ \(1\).png");
+        background-size: contain;
+        position: absolute;
+        left: 658px;
+        top: 8px;
+        background-repeat: no-repeat;
+    }
+    #barraDeVidaCell{
+        height: 31px;
+        width: 251px;
+        display: inline-block;
+        background-image: url("barravidaminicell.png");
+        background-size: contain;
+        position: absolute;
+        left: 6px;
+        top: 5px;
+        background-repeat: no-repeat;
+    }
+    </style>
+    <body>
+        <div id="world">
+            <div id="players">
+                <div class="player"></div>
+            </div>
+            <div class="cell"></div>
+            <div id="cuadroDeVidaGoku">
+                <div id="barraDeVidaGoku"></div>
+            </div>
+            <div id="cuadroDeVidaCell">
+                <div id="barraDeVidaCell"></div>
+            </div>
+        </div>
+
+    </body>
+    
+    <script type="text/javascript">
+        
+        var player = {
+            left: 40,
+            top: 250
+        }
+        var cell = {
+            left: 800,
+            top: 250
+        }
+
+        function drawCell(){
+            
+        }
+        function drawPlayer(){
+            content = "<div class='player' style='left:"+player.left+"px; top:"+player.top+"px'></div>";
+            document.getElementById("players").innerHTML = content;
+        }
+        drawPlayer();
+
+        document.onkeydown = function(e) {
+            console.log(e);
+            if(e.keyCode == 37 && player.left > 10){ // left
+                player.left = player.left - 10;
+            }
+            if(e.keyCode == 39 && player.left < 840){ // right
+                player.left = player.left + 10;
+            }
+            if(e.keyCode == 38 && player.top > 8){ // UP
+                player.top = player.top - 10;
+            }
+            if(e.keyCode == 40 && player.top < 540){ // DOWN
+                player.top = player.top + 10;
+            }
+            drawPlayer();
+        }
+        </script>
+</html>
